@@ -3,19 +3,19 @@ package models.validators;
 import java.util.ArrayList;
 import java.util.List;
 
-import models.Message;
+import models.Task;
 
-public class MessageValidator {
+public class TaskValidator {
     // バリデーションを実行する
-    public static List<String> validate(Message m) {
+    public static List<String> validate(Task t) {
         List<String> errors = new ArrayList<String>();
 
-        String title_error = validateTitle(m.getTitle());
+        String title_error = validateTitle(t.getTitle());
         if (!title_error.equals("")) {
             errors.add(title_error);
         }
 
-        String content_error = validateContent(m.getContent());
+        String content_error = validateContent(t.getContent());
         if (!content_error.equals("")) {
             errors.add(content_error);
         }
@@ -35,7 +35,7 @@ public class MessageValidator {
     // メッセージの必須入力チェック
     private static String validateContent(String content) {
         if (content == null || content.equals("")) {
-            return "メッセージを入力してください。";
+            return "タスク内容を入力してください。";
         }
 
         return "";
