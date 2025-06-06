@@ -9,8 +9,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import models.Message;
-import util.DBUtil;
+import models.Task;
+import utils.DBUtil;
 
 /**
  * Servlet implementation class DestroyServlet
@@ -24,34 +24,30 @@ public class DestroyServlet extends HttpServlet {
      */
     public DestroyServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String _token = request.getParameter("_token");
-        if (_token != null && _token.equals(request.getSession().getId())) {
+        if(_token != null && _token.equals(request.getSession().getId())) {
             EntityManager em = DBUtil.createEntityManager();
 
             // セッションスコープからメッセージのIDを取得して
             // 該当のIDのメッセージ1件のみをデータベースから取得
-            Message m = em.find(Message.class, (Integer) (request.getSession().getAttribute("message_id")));
+            Task t = em.find(Task.class, (Integer)(request.getSession().getAttribute("task_id")));
 
             em.getTransaction().begin();
-            em.remove(m); // データ削除
+            em.remove(t);       // データ削除
             em.getTransaction().commit();
-            request.getSession().setAttribute("flush", "削除が完了しました。");       // ここを追記
             em.close();
 
             // セッションスコープ上の不要になったデータを削除
-            request.getSession().removeAttribute("message_id");
+            request.getSession().removeAttribute("task_id");
 
             // indexページへリダイレクト
             response.sendRedirect(request.getContextPath() + "/index");
         }
     }
-
 }

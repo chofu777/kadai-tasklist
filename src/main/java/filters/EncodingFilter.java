@@ -9,19 +9,17 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 import jakarta.servlet.annotation.WebFilter;
-import jakarta.servlet.http.HttpFilter;
 
 /**
  * Servlet Filter implementation class EncodingFilter
  */
 @WebFilter("/*")
-public class EncodingFilter extends HttpFilter implements Filter {
+public class EncodingFilter implements Filter {
 
     /**
-     * @see HttpFilter#HttpFilter()
+     * Default constructor.
      */
     public EncodingFilter() {
-        super();
         // TODO Auto-generated constructor stub
     }
 

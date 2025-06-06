@@ -27,7 +27,7 @@
             <property name="hibernate.format_sql" value="true" />
             <property
                 name="jakarta.persistence.schema-generation.database.action"
-                value="create" />
+                value="create" ></property>
         </properties>
     </persistence-unit>
 </persistence>
