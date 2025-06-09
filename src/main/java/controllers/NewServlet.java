@@ -8,7 +8,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import models.Task;
 
 /**
@@ -25,38 +24,6 @@ public class NewServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
-    //    /**
-    //     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-    //     */
-    //    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    //            throws ServletException, IOException {
-    //        EntityManager em = DBUtil.createEntityManager();
-    //        em.getTransaction().begin();
-    //
-    //        // Messageのインスタンスを生成
-    //        Message m = new Message();
-    //
-    //        //mの各フィールドにデータを代入
-    //        String title = "taro";
-    //        m.setTitle(title);
-    //
-    //        String content = "hello";
-    //        m.setContent(content);
-    //
-    //        Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-    //        m.setCreated_at(currentTime);
-    //        m.setUpdated_at(currentTime);
-    //
-    //        // データベースに保存
-    //        em.persist(m);
-    //        em.getTransaction().commit();
-    //
-    //        // 自動裁判されたIDの値を表示
-    //        response.getWriter().append(Integer.valueOf(m.getId()).toString());
-    //
-    //        em.close();
-    //    }
 
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)

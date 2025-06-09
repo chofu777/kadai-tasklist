@@ -17,7 +17,7 @@
                 ${param.content}
             </div>
             <div id="footer">
-                by Kingen Li.
+                云里雾里放光彩.
             </div>
         </div>
     </body>

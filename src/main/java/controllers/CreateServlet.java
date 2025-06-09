@@ -11,7 +11,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import models.Task;
 import models.validators.TaskValidator;
 import utils.DBUtil;
@@ -42,9 +41,6 @@ public class CreateServlet extends HttpServlet {
             em.getTransaction().begin();
 
             Task t = new Task();
-
-            String title = request.getParameter("title");
-            t.setTitle(title);
 
             String content = request.getParameter("content");
             t.setContent(content);

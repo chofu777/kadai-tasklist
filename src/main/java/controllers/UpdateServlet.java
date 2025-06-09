@@ -11,7 +11,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import models.Task;
 import models.validators.TaskValidator;
 import utils.DBUtil;
@@ -43,10 +42,6 @@ public class UpdateServlet extends HttpServlet {
             // セッションスコープからメッセージのIDを取得して
             // 該当のIDのメッセージ1件のみをデータベースから取得
             Task t = em.find(Task.class, (Integer) (request.getSession().getAttribute("task_id")));
-
-            // フォームの内容を各フィールドに上書き
-            String title = request.getParameter("title");
-            t.setTitle(title);
 
             String content = request.getParameter("content");
             t.setContent(content);
